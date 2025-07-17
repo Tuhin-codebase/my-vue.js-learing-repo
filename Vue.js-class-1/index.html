@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js 3-x</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+</head>
+<body>
+
+
+    <div id="app"> 
+        <div class="container w-100 flex flex-col items-center bg-[#0096c7] p-3 mx-auto mt-5 rounded-lg text-center">
+            <h2 class="text-3xl font-bold" >mine porject in Vue.js</h2>
+            <div class="input">
+                <input v-model="newMovie.title" class=" text-xl bg-white w-75 border-2  p-1 border-white rounded-xl mt-3"  type="text" placeholder="Enter Title" ><br>
+                <input v-model="newMovie.name" class=" text-xl bg-white w-75 border-2  p-1 border-white rounded-xl mt-3"  type="text" placeholder="Name"  ><br><br>
+               
+            </div>
+            <div class="butonDiv">
+                <button v-on:click="addFunction" class=" bg-green-200 border-2 py-1 px-8 border-pink-300 rounded-lg font-bold hover:bg-gray-200 mr-3  mb-2 " >Add Movie</button>
+
+                <button v-on:click="removeFuncion " class=" bg-red-200 border-2 py-1 px-5 border-pink-300 rounded-lg font-bold hover:bg-gray-200  mb-2" >Remove Movie</button>
+            </div>
+            <div id="items" class="movie-list w-full  border-1 border-red-300 ">
+                <h2 class="text-2xl mt-3  " >Movie List-area </h2>
+                <span v-if="array.length >= 4 " >your add The hight movie 5</span>
+                <p v-for="movie in array" class="bg-white m-1 rounded-lg"  >{{movie.title}} - {{movie.name}}</p>
+                 
+            </div>
+        </div>
+    </div>
+
+    <script>
+      let {createApp, ref, reactive, computed, watch} = Vue;
+      createApp({
+        setup() {
+         
+            let newMovie = reactive({title:'', name: ''})
+            let array = reactive( [
+                    {title: "movie 1", name: "one"},
+                    {title: "movie 2", name: "two"},
+                    {title: "movie 3", name: "three"}
+            ]);
+
+            let addFunction = () => {
+                array.push({title:newMovie.title, name:newMovie.name});
+                newMovie.title = '';
+                newMovie.name = '';
+            };
+
+            function removeFuncion () {
+                array.pop();
+            };
+
+            return{
+              array,
+              addFunction,
+              newMovie,
+              removeFuncion,
+            };
+        }
+      }).mount("#app");
+    </script>
+
+</body>
+</html>
