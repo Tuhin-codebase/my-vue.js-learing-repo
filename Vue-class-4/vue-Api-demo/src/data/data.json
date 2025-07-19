@@ -1,0 +1,28 @@
+{
+    "manyData": [
+        {
+            "id": 1, 
+            "name": "Malek islam",
+            "country" : "bangaldesh",
+            "description": "He is a good man and he working to bangaldesh"
+        },
+        {
+            "id": 2, 
+            "name": "rasel islam",
+            "country" : "india",
+            "description": "He is a good man and he working to bangaldesh"
+        },
+        {
+            "id": 3, 
+            "name": "ridoy islam",
+            "country" : "brazil",
+            "description": "He is a good man and he working to bangaldesh"
+        },
+        {
+            "id": 4, 
+            "name": "rasel islam",
+            "country" : "inkland",
+            "description": "He is a good man and he working to bangaldesh"
+        }
+    ]
+}
