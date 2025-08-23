@@ -12,14 +12,23 @@ const app = {};
 // dependenices
 const http = require("http");
 const {helperHandle} = require("./helpers/helper");
+const environment = require("./helpers/envierment");
+const data = require("./lib/data");
 // config server 
-app.config ={
+app.config ={ 
     post: 8000,
 }
+
+// test writing a file 
+// data.delete("test", "newfile", function (err) {
+//     console.log(err);
+// });
+
 // create server 
 app.createServer = () => {
    const server =  http.createServer(app.hendleServer);
-    server.listen(app.config.post);
+    server.listen(environment.port);
+    console.log(`this server listen this port ${environment.port}`);
 }
 
 app.hendleServer = helperHandle;

@@ -9,9 +9,11 @@
 
 // dependenices 
 const {contact} = require("./routerHelperReqRes/contact");
+const {user} = require('./routerHelperReqRes/userHandleer');
 // modules scoffolding 
 const router = {
     contact: contact,
+    users: user,
 }
 
 
